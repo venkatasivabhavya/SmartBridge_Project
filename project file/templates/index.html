@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Revoluting Liver Care</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Liver Cirrhosis</h1>
+        <form action="/predict" method="post">
+            <label>Age:</label><input type="number" name="age" required><br>
+            <label>Total Bilirubin:</label><input type="number" step="any" name="total_bilirubin" required><br>
+            <label>Direct Bilirubin:</label><input type="number" step="any" name="direct_bilirubin" required><br>
+            <label>Alkaline Phosphotase:</label><input type="number" name="alk_phosphate" required><br>
+            <label>Alamine Aminotransferase:</label><input type="number" name="alt" required><br>
+            <label>Aspartate Aminotransferase:</label><input type="number" name="ast" required><br>
+            <label>Total Proteins:</label><input type="number" step="any" name="total_protein" required><br>
+            <label>Albumin:</label><input type="number" step="any" name="albumin" required><br>
+            <label>Albumin and Globulin Ratio:</label><input type="number" step="any" name="ag_ratio" required><br>
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
